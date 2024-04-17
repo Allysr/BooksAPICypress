@@ -12,6 +12,17 @@ export const postOrderRequest = (token) => {
   });
 };
 
+export const postOrderWithoutBodyRequest = (token) => {
+  return cy.request({
+    method: "POST",
+    url: "/orders/",
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+    failOnStatusCode: false,
+  });
+};
+
 export const getOrderRequest = (token) => {
   return cy.request({
     method: "GET",
@@ -29,6 +40,7 @@ export const getOrderByIDRequest = (token, id) => {
     headers: {
       Authorization: `Bearer ${token}`,
     },
+    failOnStatusCode: false,
   });
 };
 
@@ -42,6 +54,7 @@ export const patchOrderByIDRequest = (token, orderID) => {
     body: {
       customerName: "Ana",
     },
+    failOnStatusCode: false,
   });
 };
 
@@ -52,5 +65,6 @@ export const deleteOrderByIDRequest = (token, orderID) => {
     headers: {
       Authorization: `Bearer ${token}`,
     },
+    failOnStatusCode: false,
   });
 };

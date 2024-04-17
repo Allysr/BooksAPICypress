@@ -2,9 +2,9 @@ import {
   getBookByIDRequest,
   getBookRequest,
   getBookWithParamRequest,
-} from "../request/bookRequest.js";
+} from "../../request/bookRequest.js";
 
-describe("Books", () => {
+describe("Get Books", () => {
   it("Deve retornar o status 200 e listar os livros", () => {
     getBookRequest().then((response) => {
       expect(response.status).to.eq(200);

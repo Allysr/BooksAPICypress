@@ -2,9 +2,9 @@ import {
   postLoginExistentRequest,
   postLoginRequest,
   postLoginWithoutBodyRequest,
-} from "../request/loginRequest.js";
+} from "../../request/loginRequest.js";
 
-describe("Login", () => {
+describe("Post Login", () => {
   it("Deve retornar o status 201 e retornar um token de acesso", () => {
     postLoginRequest().then((response) => {
       expect(response.status).to.eq(201);
