@@ -3,7 +3,7 @@
 ### 🔖 Como executar o projeto:
 
 ```diff
-• git clone
+• git clone https://github.com/Allysr/BooksAPICypress.git
 • cd booksapicypress
 • npm run cypress:run
 ```
