@@ -1,12 +1,12 @@
-import { postLoginRequest } from "../../request/loginRequest.js";
+import { postAuthRequest } from "../../../support/request/auth/AuthRequest.js";
 import {
   postOrderRequest,
   postOrderWithoutBodyRequest,
-} from "../../request/orderRequest.js";
+} from "../../../support/request/order/postOrderRequest.js";
 
-describe("Post Order", () => {
+describe("Criar pedido /order", () => {
   it("Deve retornar o status 201 e retornar o pedido criado", () => {
-    postLoginRequest().then((response) => {
+    postAuthRequest().then((response) => {
       expect(response.status).to.eq(201);
       const token = response.body.accessToken;
 
@@ -19,7 +19,7 @@ describe("Post Order", () => {
   });
 
   it("Deve retornar o status 400 ao realizar requisição sem body", () => {
-    postLoginRequest().then((response) => {
+    postAuthRequest().then((response) => {
       expect(response.status).to.eq(201);
       const token = response.body.accessToken;
 

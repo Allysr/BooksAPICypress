@@ -1,6 +1,6 @@
-import { getStatusRequest } from "../../request/statusRequest.js";
+import { getStatusRequest } from "../../../support/request/status/statusRequest.js";
 
-describe("Get Status", () => {
+describe("Obter status /status", () => {
     it("Deve validar o status da API", () => {
         getStatusRequest().then((response) => {
             expect(response.status).to.eq(200);

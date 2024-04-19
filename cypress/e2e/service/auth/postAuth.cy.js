@@ -1,19 +1,20 @@
 import {
-  postLoginExistentRequest,
-  postLoginRequest,
-  postLoginWithoutBodyRequest,
-} from "../../request/loginRequest.js";
+  postAuthExistentRequest,
+  postAuthRequest,
+  postAuthWithoutBodyRequest,
+} from "../../../support/request/auth/AuthRequest.js";
 
-describe("Post Login", () => {
+
+describe("Criar usuario /api-clients/", () => {
   it("Deve retornar o status 201 e retornar um token de acesso", () => {
-    postLoginRequest().then((response) => {
+    postAuthRequest().then((response) => {
       expect(response.status).to.eq(201);
       expect(response.body).to.have.property("accessToken");
     });
   });
 
   it("Deve retornar o status 409 ao inserir dados ja registrados", () => {
-    postLoginExistentRequest().then((response) => {
+    postAuthExistentRequest().then((response) => {
       expect(response.status).to.eq(409);
       expect(response.body.error).to.equal(
         `API client already registered. Try a different email.`
@@ -22,7 +23,7 @@ describe("Post Login", () => {
   });
 
   it("Deve retornar o status 400 ao realizar requisição sem body", () => {
-    postLoginWithoutBodyRequest().then((response) => {
+    postAuthWithoutBodyRequest().then((response) => {
       expect(response.status).to.eq(400);
       expect(response.body.error).to.equal(`Invalid or missing client name.`);
     });

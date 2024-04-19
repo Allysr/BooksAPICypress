@@ -1,6 +1,6 @@
-import { gerarNumeroAleatorio } from "../../../support/numeroAleatorio.js";
+import { gerarNumeroAleatorio } from "../../numeroAleatorio.js";
 
-export const postLoginRequest = () => {
+export const postAuthRequest = () => {
   return cy.request({
     method: "POST",
     url: "/api-clients/",
@@ -11,7 +11,7 @@ export const postLoginRequest = () => {
   });
 };
 
-export const postLoginExistentRequest = () => {
+export const postAuthExistentRequest = () => {
   return cy.request({
     method: "POST",
     url: "/api-clients/",
@@ -23,7 +23,7 @@ export const postLoginExistentRequest = () => {
   });
 };
 
-export const postLoginWithoutBodyRequest = () => {
+export const postAuthWithoutBodyRequest = () => {
   return cy.request({
     method: "POST",
     url: "/api-clients/",

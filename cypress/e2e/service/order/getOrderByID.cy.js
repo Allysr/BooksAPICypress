@@ -1,30 +1,13 @@
-import { postLoginRequest } from "../../request/loginRequest.js";
-import {
-  getOrderByIDRequest,
-  getOrderRequest,
-  postOrderRequest,
-} from "../../request/orderRequest.js";
+import { postAuthRequest } from "../../../support/request/auth/AuthRequest.js";
+import { postOrderRequest } from "../../../support/request/order/postOrderRequest.js";
+import { getOrderByIDRequest } from "../../../support/request/order/getOrderByIDRequest.js";
 
-describe("Get Order", () => {
-  it("Deve retornar o status 200 e listar todas os pedidos", () => {
-    postLoginRequest().then((response) => {
-      expect(response.status).to.eq(201);
-      const token = response.body.accessToken;
-
-      getOrderRequest(token).then((response) => {
-        expect(response.status).to.eq(200);
-        expect(response.body.length).to.be.at.most(1);
-      });
-    });
-  });
-
+describe("Obter pedido por ID /order/{id}", () => {
   it("Deve retornar o status 200 e listar um pedido por id", () => {
-    postLoginRequest().then((response) => {
-      expect(response.status).to.eq(201);
+    postAuthRequest().then((response) => {
       const token = response.body.accessToken;
 
       postOrderRequest(token).then((response) => {
-        expect(response.status).to.eq(201);
         const id = response.body.orderId;
 
         getOrderByIDRequest(token, id).then((response) => {
@@ -41,15 +24,31 @@ describe("Get Order", () => {
   });
 
   it("Deve retornar o status 404 ao passar um id inexistente", () => {
-    postLoginRequest().then((response) => {
-      const id = 1235;
+    const id = 1235;
 
-      expect(response.status).to.eq(201);
+    postAuthRequest().then((response) => {
       const token = response.body.accessToken;
 
       getOrderByIDRequest(token, id).then((response) => {
         expect(response.status).to.eq(404);
         expect(response.body.error).to.equal(`No order with id ${id}.`);
+      });
+    });
+  });
+
+  it("Deve retornar o status 401 ao acessar a rota com token inválido", () => {
+    const tokenInvalido = 1234;
+
+    postAuthRequest().then((response) => {
+      const token = response.body.accessToken;
+
+      postOrderRequest(token).then((response) => {
+        const id = response.body.orderId;
+
+        getOrderByIDRequest(tokenInvalido, id).then((response) => {
+          expect(response.status).to.eq(401);
+          expect(response.body.error).to.eq("Invalid bearer token.");
+        });
       });
     });
   });

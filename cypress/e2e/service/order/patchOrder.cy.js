@@ -1,12 +1,10 @@
-import { postLoginRequest } from "../../request/loginRequest.js";
-import {
-  patchOrderByIDRequest,
-  postOrderRequest,
-} from "../../request/orderRequest.js";
+import { postAuthRequest } from "../../../support/request/auth/AuthRequest.js";
+import { postOrderRequest } from "../../../support/request/order/postOrderRequest.js";
+import { patchOrderByIDRequest } from "../../../support/request/order/pathOrderRequest.js";
 
-describe("Patch Order", () => {
+describe("Alterar pedido /order", () => {
   it("Deve retornar o status 204 ao atualizar um pedido", () => {
-    postLoginRequest().then((response) => {
+    postAuthRequest().then((response) => {
       expect(response.status).to.eq(201);
       const token = response.body.accessToken;
 
@@ -23,7 +21,7 @@ describe("Patch Order", () => {
 
   it("Deve retornar o status 404 ao passar um id inválido", () => {
     const orderID = 1234;
-    postLoginRequest().then((response) => {
+    postAuthRequest().then((response) => {
       expect(response.status).to.eq(201);
       const token = response.body.accessToken;
 
