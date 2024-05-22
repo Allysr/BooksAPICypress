@@ -1,4 +1,5 @@
 import { getBookByIDRequest } from "../../../support/request/book/getBookByIDRequest.js";
+import json from "../../../fixtures/book.json";
 
 describe("Obter livros por ID /books{id}", () => {
   it("Deve retornar o status 200 e listar um livro por ID", () => {
@@ -16,6 +17,15 @@ describe("Obter livros por ID /books{id}", () => {
         "current-stock": 12,
         available: true,
       });
+    });
+  });
+
+  it("Deve retornar o status 200 e listar um livro por ID (json)", () => {
+    const id = 1;
+
+    getBookByIDRequest(id).then((response) => {
+      expect(response.status).to.eq(200);
+      expect(response.body).to.deep.eq(json);
     });
   });
 
