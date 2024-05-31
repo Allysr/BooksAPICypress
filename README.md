@@ -1,13 +1,14 @@
-﻿## Simple Books API com Cypress
-
-## Objetivo:
+﻿## Objetivo:
 
 O objetivo desses testes é validar as API's das funcionalidades listar livros, realizar um pedido, e autenticações.
+
+<br>
 
 ## O que foi utilizado:
 
 - Cypress
 
+<br>
 
 ## Como executar o projeto:
 
@@ -17,6 +18,7 @@ O objetivo desses testes é validar as API's das funcionalidades listar livros, 
 • npm run cypress:run
 ```
 
+<br>
 
 ## Documentos
 
@@ -124,13 +126,6 @@ Será realizado testes nos seguintes endpoints:
 - [x] Deve retornar o status 401 ao acessar a rota sem token
 
 </details>
-
-
-
-## Melhorias ao código:
-- Adicionar testes de contrato;
-- Adicionar relatório;
-- Adicionar mais casos de testes negativos dos pedidos;
 
       
 
