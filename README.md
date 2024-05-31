@@ -9,7 +9,7 @@ O objetivo desses testes é validar as API's das funcionalidades listar livros, 
 - Cypress
 
 
-### 🔖 Como executar o projeto:
+## Como executar o projeto:
 
 ```diff
 • git clone https://github.com/Allysr/BooksAPICypress.git
@@ -127,7 +127,7 @@ Será realizado testes nos seguintes endpoints:
 
 
 
-### 🔖 Melhorias ao código:
+## Melhorias ao código:
 - Adicionar testes de contrato;
 - Adicionar relatório;
 - Adicionar mais casos de testes negativos dos pedidos;
