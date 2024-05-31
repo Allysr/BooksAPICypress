@@ -7,6 +7,7 @@ O objetivo desses testes é validar as API's das funcionalidades listar livros, 
 ## O que foi utilizado:
 
 - Cypress
+- AJV
 
 <br>
 
@@ -126,6 +127,8 @@ Será realizado testes nos seguintes endpoints:
 - [x] Deve retornar o status 401 ao acessar a rota sem token
 
 </details>
+
+
 
       
 
