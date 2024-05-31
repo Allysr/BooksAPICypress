@@ -13,8 +13,8 @@ O objetivo desses testes é validar as API's das funcionalidades listar livros, 
 ## Como executar o projeto:
 
 ```diff
-• git clone https://github.com/Allysr/BooksAPICypress.git
-• cd booksapicypress
+• git clone https://github.com/Allysr/books-api-test.git
+• cd books-api-test
 • npm run cy:run
 ```
 
