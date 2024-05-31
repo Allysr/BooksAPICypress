@@ -1,5 +1,14 @@
 ﻿## Simple Books API com Cypress
 
+## Objetivo:
+
+O objetivo desses testes é validar as API's das funcionalidades listar livros, realizar um pedido, e autenticações.
+
+## O que foi utilizado:
+
+- Cypress
+
+
 ### 🔖 Como executar o projeto:
 
 ```diff
@@ -8,7 +17,61 @@
 • npm run cypress:run
 ```
 
-### 🔖 Testes:
+
+## Documentos
+
+<details>
+<summary>Plano de teste</summary>
+
+#### Introdução:
+Este documento descreve o plano de teste para a API de livros e pedidos.
+
+
+#### Escopo:
+Será realizado testes nos seguintes endpoints:
+- /api-clients/ - Autentica o usuário;
+- /books - Buscar todos os livros;
+- /books/{id} - Buscar apenas um livro por id;
+- /orders/ - Cria e busca pedidos;
+- /orders/{id} - Atualiza, busca e deleta um pedido por id.
+
+
+#### Estratégia de Teste:
+
+1. O que será testado:
+    - Requisitos funcionais:
+        - Endpoints
+        - Métodos
+        - Status code
+        - Schema
+    - Requisitos não funcionais
+        - Autenticação e autorização
+        - Tempo de resposta
+
+2. Ferramentas de teste:
+   - Testes manuais: 
+     - Postman
+   - Testes automatizados:
+     - Linguagem de programação: Javascript
+     - Manutenção de dependencias: NPM
+     - Frameworks: Cypress
+
+
+#### Critérios de aceite:
+
+- Os dados de entrada e saída devem ser validados conforme os requisitos.
+- Todos as respostas não devem passar de 6 segundos.
+- Todos os endpoints devem retornar status de sucesso e erros.
+
+#### Recursos necessários
+- Acesso à documentação da API. 
+
+</details>
+
+
+
+<details>
+<summary>Casos de teste</summary>
 
 #### Status
 
@@ -59,6 +122,8 @@
 - [x] Deve retornar o status 404 ao passar um id inexistente
 - [x] Deve retornar o status 401 ao acessar a rota com token inválido
 - [x] Deve retornar o status 401 ao acessar a rota sem token
+
+</details>
 
 
 

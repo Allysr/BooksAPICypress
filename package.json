@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "cypress:open": "cypress open",
-    "cypress:run": "cypress run --browser chrome"
+    "cy:open": "cypress open",
+    "cy:run": "cypress run --browser chrome"
 
   },
   "keywords": [],
