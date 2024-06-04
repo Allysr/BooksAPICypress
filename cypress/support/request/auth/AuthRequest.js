@@ -1,5 +1,4 @@
-import { gerarNumeroAleatorio } from "../../numeroAleatorio.js";
-
+import { gerarNumeroAleatorio } from "../../util/numeroAleatorio.js";
 export const postAuthRequest = () => {
   return cy.request({
     method: "POST",
